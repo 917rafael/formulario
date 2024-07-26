@@ -1,5 +1,7 @@
+<!-- eslint-disable vue/multi-word-component-names -->
+// eslint-disable-next-line vue/multi-word-component-names
 <script setup>
-import { reactive } from 'vue'
+import { reactive } from 'vue';
 const emit = defineEmits(['adicinar'])
 
 function salvar() {
@@ -7,19 +9,25 @@ function salvar() {
     alert('Por favor preencha todos os campos!!!!!!!!!!!')
     return;
   } 
-  emit('adicinar', { ...usuario})
+  else if (usuario.senha !== usuario.confirmacao){
+    alert('Crendencias Inválidas')
+  }
+  else{
+  emit('adicionar', { ...usuario})
+  }
 }
 
 
 
+
 const usuario = reactive({
-  nome: 'rafa lucas',
-  Email: 'rafaellucas772@gmail.com',
-  senha: 'ABU',
-  confirmacao: 'ABU',
+  nome: '',
+  Email: '',
+  senha: '',
+  confirmacao: '',
   data:'',
-  endereco:'abu',  
-  cidade:'abuzinho'
+  endereco:'',  
+  cidade:''
 })
 
 
@@ -27,6 +35,7 @@ const usuario = reactive({
 </script>
 
 <template>
+
   <div class="container">
     <main>
       <div class="nome">
@@ -65,8 +74,11 @@ const usuario = reactive({
       </div>
 
     
-    </main>
+    </main> 
+    <button @click="salvar">Salvar</button>
   </div>
+ 
+
 </template>
 
 <style scoped>

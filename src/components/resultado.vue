@@ -1,32 +1,23 @@
+<!-- eslint-disable vue/multi-word-component-names -->
+
 <script setup>
-defineProps(['adicinar'])
 
-
-
+const props = defineProps({
+  usuarios: Array
+});
 </script>
 
-
-
 <template>
-    <div class="resultado">
-        <div v-for="usuario in adicinar" class="resultado">
-        <div>Nome: <p>{{ usuario.nome }}</p></div>
-        <div>Email: <p>{{ usuario.email }}</p></div>
-      </div>
-            
-      </div>
-
-                
-
+  <div>
+    <h2>Resultado</h2>
+    <ul>
+      <li v-for="(usuario, index) in props.usuarios" :key="index">
+        {{ usuario }} 
+      </li>
+    </ul>
+  </div>
 </template>
 
 <style scoped>
-.resultado{
-    color: rgb(255, 255, 255);
-    background-color: blue;
-    border-radius: 6px;
-    height: 450px;
-    width: 450px;
-    margin-left: 5px;
-}
+
 </style>
