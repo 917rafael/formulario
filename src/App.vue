@@ -7,7 +7,6 @@ const usuarios = ref({})
 const mostrarResultado = ref(false)
 
 function clone(usuario) {
-    // const novoUsuario = { ...usuario };
     usuarios.value = usuario;    
     mostrarResultado.value = true
     }   
